@@ -2,7 +2,6 @@ package com.manuelamores.service;
 
 import com.manuelamores.model.Category;
 import com.manuelamores.repo.CategoryRepo;
-import org.springframework.stereotype.Service;
 
 
 public class CategoryService {
