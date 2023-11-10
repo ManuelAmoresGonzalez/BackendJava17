@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -17,12 +19,28 @@ public class CategoryServiceImpl implements ICategorySevice{
     private final ICategoryRepo repo;
 
 
+    @Override
+    public Category save(Category category) throws Exception {
+        return repo.save(category);
+    }
 
-    public Category validAndSave(Category category){
-        if(category.getIdCategory() > 0){
-            return repo.save(category);
-        }else{
-            return new Category();
-        }
+    @Override
+    public Category update(Integer id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<Category> readAll() throws Exception {
+        return null;
+    }
+
+    @Override
+    public Category readById(Integer id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void delete(Integer id) throws Exception {
+
     }
 }
