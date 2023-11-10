@@ -18,6 +18,6 @@ public class CategoryController{
     
     @GetMapping
     public Category saveCategory(){
-        return service.validAndSave(new Category(1, "TV", "television", true));
+        return service.validAndSave(new Category(1, "PC", "Computer", true));
     }
 }
