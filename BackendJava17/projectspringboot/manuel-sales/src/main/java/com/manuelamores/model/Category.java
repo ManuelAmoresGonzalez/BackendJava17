@@ -1,9 +1,7 @@
 package com.manuelamores.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class Category {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idCategory;
     @Column(nullable = false, length = 50)
     private String name;

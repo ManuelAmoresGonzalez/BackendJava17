@@ -25,22 +25,23 @@ public class CategoryServiceImpl implements ICategorySevice{
     }
 
     @Override
-    public Category update(Integer id) throws Exception {
-        return null;
+    public Category update(Category category, Integer id) throws Exception {
+        category.setIdCategory(id);
+        return repo.save(category);
     }
 
     @Override
     public List<Category> readAll() throws Exception {
-        return null;
+        return repo.findAll();
     }
 
     @Override
     public Category readById(Integer id) throws Exception {
-        return null;
+        return repo.findById(id).orElse(new Category());
     }
 
     @Override
     public void delete(Integer id) throws Exception {
-
+        repo.deleteById(id);
     }
 }
