@@ -1,8 +1,11 @@
 package com.manuelamores.controller;
 
+import com.manuelamores.dto.CategoryDTO;
+import com.manuelamores.dto.CategoryRecord;
 import com.manuelamores.model.Category;
 import com.manuelamores.service.ICategorySevice;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +19,22 @@ import java.util.List;
 public class CategoryController{
 
     private final ICategorySevice service;
+    private final ModelMapper mapper;
     
     @GetMapping
-    public ResponseEntity<List<Category>>  readAll() throws Exception {
-        List<Category> categories = service.readAll();
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+    public ResponseEntity<List<CategoryDTO>>  readAll() throws Exception {
+        List<CategoryDTO> categoryDTO =  service.readAll()
+                .stream()
+                .map( value -> mapper.map(value, CategoryDTO.class))
+                .toList();
+        return new ResponseEntity<>(categoryDTO, HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Category> readById(@PathVariable ("id") Integer id) throws Exception {
+    public ResponseEntity<CategoryDTO> readById(@PathVariable ("id") Integer id) throws Exception {
          Category category = service.readById(id);
-         return new ResponseEntity<>(category, HttpStatus.OK);
+         CategoryDTO dto = mapper.map(category, CategoryDTO.class);
+         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
     @PostMapping
