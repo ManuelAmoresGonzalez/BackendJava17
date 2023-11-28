@@ -6,6 +6,7 @@ import com.manuelamores.model.Category;
 import com.manuelamores.service.ICategorySevice;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import java.util.List;
 public class CategoryController{
 
     private final ICategorySevice service;
+    @Qualifier("categoryMapper")
     private final ModelMapper mapper;
     
     @GetMapping
