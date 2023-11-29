@@ -22,8 +22,8 @@ public class MapperConfig {
         TypeMap<Category, CategoryDTO> typeMap1 = mapper.createTypeMap(Category.class, CategoryDTO.class);
         typeMap1.addMapping(Category::getName, (dest, value) -> dest.setNameOfCategory((String) value));
 
-        /*TypeMap<CategoryDTO, Category> typeMap2 = mapper.createTypeMap(CategoryDTO.class, Category.class);
-        typeMap2.addMapping(CategoryDTO::getNameOfCategory, (dest, value) -> dest.setName((String) value));*/
+        TypeMap<CategoryDTO, Category> typeMap2 = mapper.createTypeMap(CategoryDTO.class, Category.class);
+        typeMap2.addMapping(CategoryDTO::getNameOfCategory, (dest, value) -> dest.setName((String) value));
 
         return mapper;
     }
@@ -31,12 +31,12 @@ public class MapperConfig {
     @Bean("productMapper")
     public ModelMapper productMapper() {
         ModelMapper mapper = new ModelMapper();
-        TypeMap<Product, ProductDTO> typeMap1 = mapper.createTypeMap(Product.class, ProductDTO.class);
+        /*TypeMap<Product, ProductDTO> typeMap1 = mapper.createTypeMap(Product.class, ProductDTO.class);
         typeMap1.addMapping(category -> category.getCategory().getIdCategory(), (dest, value) -> dest.setIdCategorie((Integer) value));
 
         TypeMap<ProductDTO, Product> typeMap2 = mapper.createTypeMap(ProductDTO.class, Product.class);
         typeMap2.addMapping(ProductDTO::getIdCategorie, (dest, value) -> dest.getCategory().setIdCategory((Integer) value));
-
+*/
         return mapper;
     }
 
