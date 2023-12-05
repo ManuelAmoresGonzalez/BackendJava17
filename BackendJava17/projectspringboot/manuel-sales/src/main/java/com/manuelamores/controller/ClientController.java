@@ -3,6 +3,7 @@ package com.manuelamores.controller;
 import com.manuelamores.dto.ClientDTO;
 import com.manuelamores.model.Client;
 import com.manuelamores.service.IClientService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,13 +38,13 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> create(@RequestBody ClientDTO dto) throws Exception {
+    public ResponseEntity<ClientDTO> create(@Valid @RequestBody ClientDTO dto) throws Exception {
         Client createdClient = service.save(convertToEntity(dto));
         return new ResponseEntity<>(convertToDTO(createdClient), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ClientDTO> update(@RequestBody ClientDTO dto, @PathVariable ("id") Integer id) throws Exception {
+    public ResponseEntity<ClientDTO> update(@Valid @RequestBody ClientDTO dto, @PathVariable ("id") Integer id) throws Exception {
         Client updatedClient = service.update(convertToEntity(dto), id);
         return new ResponseEntity<>(convertToDTO(updatedClient), HttpStatus.OK);
     }
