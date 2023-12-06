@@ -1,6 +1,5 @@
 package com.manuelamores.dto;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -11,27 +10,23 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDTO {
+public class UserDTO {
 
-    private Integer idProduct;
+    private String idUser;
 
-    @NotNull
-    @Min(value = 1)
-    private Integer idCategory;
+    private RoleDTO role;
 
     @NotNull
     @NotEmpty
     @Size(min = 3, max = 50)
-    private String nameProduct;
+    private String username;
 
     @NotNull
     @NotEmpty
-    @Size(min = 3, max = 50)
-    private String descriptionProduct;
-
-    @Min(value = 1)
-    private Double priceProduct;
+    @Size(min = 3, max = 60)
+    private String password;
 
     @NotNull
-    private boolean enabledProduct;
+    private boolean enabled;
+
 }
