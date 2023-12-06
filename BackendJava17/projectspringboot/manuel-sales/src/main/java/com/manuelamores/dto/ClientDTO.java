@@ -34,7 +34,7 @@ public class ClientDTO {
 
     @NotNull
     @NotEmpty
-    @Pattern(regexp = "[0-9]+")
+    @Pattern(regexp = "[0-9]+", message = "No cumple con el formato ")
     private String phoneNumber;
 
     @NotNull

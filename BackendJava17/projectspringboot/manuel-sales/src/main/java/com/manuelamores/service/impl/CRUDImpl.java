@@ -1,5 +1,6 @@
 package com.manuelamores.service.impl;
 
+import com.manuelamores.exceptions.ModelNotFoundExceptions;
 import com.manuelamores.repo.IGenericRepo;
 import com.manuelamores.service.ICRUD;
 
@@ -27,7 +28,7 @@ public abstract class CRUDImpl<T,ID> implements ICRUD<T,ID> {
     @Override
     public T readById(ID id) throws Exception {
         //orElse temporal null
-        return getRepo().findById(id).orElse(null);
+        return getRepo().findById(id).orElseThrow( () -> new ModelNotFoundExceptions("ID NOT FOUND: " + id));
     }
 
     @Override
