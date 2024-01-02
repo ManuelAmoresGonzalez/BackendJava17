@@ -3,6 +3,7 @@ package com.manuelamores.controller;
 import com.manuelamores.dto.ProductDTO;
 import com.manuelamores.model.Product;
 import com.manuelamores.service.IProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,13 +38,13 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO dto) throws Exception {
+    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO dto) throws Exception {
         Product createdProduct = service.save(convertToEntity(dto));
         return new ResponseEntity<>(convertToDTO(createdProduct), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ProductDTO> update(@RequestBody ProductDTO dto, @PathVariable ("id") Integer id) throws Exception {
+    public ResponseEntity<ProductDTO> update(@Valid @RequestBody ProductDTO dto, @PathVariable ("id") Integer id) throws Exception {
         Product updatedProduct = service.update(convertToEntity(dto), id);
         return new ResponseEntity<>(convertToDTO(updatedProduct), HttpStatus.OK);
     }

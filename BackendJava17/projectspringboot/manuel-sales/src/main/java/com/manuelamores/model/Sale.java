@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -17,19 +18,20 @@ import java.util.List;
 public class Sale {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Integer idSale;
 
     @ManyToOne
-    @JoinColumn(name = "idClient", nullable = false, foreignKey = @ForeignKey(name = "FK_SALE_CLIENT"))
+    @JoinColumn(name = "id_client", nullable = false, foreignKey = @ForeignKey(name = "FK_SALE_CLIENT"))
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "idUser", nullable = false, foreignKey = @ForeignKey(name = "FK_SALE_USER"))
+    @JoinColumn(name = "id_user", nullable = false, foreignKey = @ForeignKey(name = "FK_SALE_USER"))
     private User user;
 
     @Column(nullable = false)
-    private LocalDate dateTime;
+    private LocalDateTime dateTime;
 
     @Column(columnDefinition = "DECIMAL(6,2)" , nullable = false)
     private double total;

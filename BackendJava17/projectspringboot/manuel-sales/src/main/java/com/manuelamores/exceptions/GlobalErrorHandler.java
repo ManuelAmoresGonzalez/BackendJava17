@@ -17,49 +17,59 @@ import java.util.stream.Collectors;
 public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
 
-    //This function is for springboot 3 and above
-    @ExceptionHandler(ModelNotFoundExceptions.class)
-    public ProblemDetail handleModelNotFoundException(ModelNotFoundExceptions e, WebRequest request){
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
-        problemDetail.setTitle("Model Not Found");
-        problemDetail.setType(URI.create(request.getContextPath()));
-        problemDetail.setDetail(e.getMessage());
-        problemDetail.setProperty("Valor 1 ", "valor1");
-        problemDetail.setProperty("Valor 2 ", true);
-        problemDetail.setProperty("Valor  ", 36);
-        return problemDetail;
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<CustomErrorReport> handleAllException(Exception ex, WebRequest req){
+        CustomErrorReport errorResponse = new CustomErrorReport(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    //This feature is for Springboot 2 and below.
-    /*@ExceptionHandler(ModelNotFoundExceptions.class)
-    public ResponseEntity<CustomErrorReport> handleModelNotfoundException(ModelNotFoundExceptions ex, WebRequest request){
-        CustomErrorReport errorResponse = new CustomErrorReport (LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+    @ExceptionHandler(ModelNotFoundExceptions.class)
+    public ResponseEntity<CustomErrorReport> handleModelNotFoundException(ModelNotFoundExceptions ex, WebRequest req){
+        CustomErrorReport errorResponse = new CustomErrorReport(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
 
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
+    //Desde Spring Boot 3
+    /*@ExceptionHandler(ModelNotFoundException.class)
+    public ProblemDetail handleModelNotFoundException(ModelNotFoundException ex, WebRequest req){
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        pd.setTitle("Model Not Found Exception");
+        pd.setType(URI.create(req.getContextPath()));
+        pd.setProperty("var1", "value1");
+        pd.setProperty("var2", true);
+        pd.setProperty("var3", 32);
+        return pd;
     }*/
 
-    @ExceptionHandler(ArithmeticException.class)
-    public ResponseEntity<CustomErrorReport> handleArithmeticException(ArithmeticException e, WebRequest request){
-        CustomErrorReport errorResponse = new CustomErrorReport(
-                LocalDateTime.now(),
-                e.getMessage(),
-                request.getDescription(false)
-        );
+    @ExceptionHandler({ArithmeticException.class, IndexOutOfBoundsException.class})
+    public ResponseEntity<CustomErrorReport> handleArithmeticException(ArithmeticException ex, WebRequest req){
+        CustomErrorReport errorResponse = new CustomErrorReport(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
+
         return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
     }
 
+    /*@ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<CustomErrorReport> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, WebRequest req){
+        CustomErrorReport errorResponse = new CustomErrorReport(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }*/
+
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest req) {
 
-        String message = ex.getBindingResult().getFieldErrors().stream().map(error ->
-             error.getField() + " : " + error.getDefaultMessage()
-        ).collect(Collectors.joining(", "));
+        String message = ex.getBindingResult().getFieldErrors().stream()
+                .map( error -> error.getField() + " : " + error.getDefaultMessage())
+                .collect(Collectors.joining(","));
 
-        CustomErrorReport errorResponse = new CustomErrorReport(
-                LocalDateTime.now(),
-                message,
-                request.getDescription(false)
-        );
+        /*String message = "";
+        for(FieldError error : ex.getBindingResult().getFieldErrors()){
+            message += error.getField() + " : " + error.getDefaultMessage() + ", ";
+        }*/
+
+        CustomErrorReport errorResponse = new CustomErrorReport(LocalDateTime.now(), message, req.getDescription(false));
+
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 }

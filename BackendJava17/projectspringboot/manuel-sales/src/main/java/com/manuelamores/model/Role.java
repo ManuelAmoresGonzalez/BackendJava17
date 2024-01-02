@@ -20,8 +20,8 @@ public class Role {
     private Integer idRole;
 
     @Column(length = 10, nullable = false)
-    private Integer nameRole;
+    private String nameRole;
 
     @Column(nullable = false)
-    private boolean enabled;
+    private boolean enabledRole;
 }

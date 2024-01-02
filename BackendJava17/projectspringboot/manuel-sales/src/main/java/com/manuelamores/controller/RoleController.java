@@ -3,6 +3,7 @@ package com.manuelamores.controller;
 import com.manuelamores.dto.RoleDTO;
 import com.manuelamores.model.Role;
 import com.manuelamores.service.IRoleService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,13 +38,13 @@ public class RoleController {
     }
 
     @PostMapping
-    public ResponseEntity<RoleDTO> create(@RequestBody RoleDTO dto) throws Exception {
+    public ResponseEntity<RoleDTO> create(@Valid  @RequestBody RoleDTO dto) throws Exception {
         Role createdRole = service.save(convertToEntity(dto));
         return new ResponseEntity<>(convertToDTO(createdRole), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<RoleDTO> update(@RequestBody RoleDTO dto, @PathVariable ("id") Integer id) throws Exception {
+    public ResponseEntity<RoleDTO> update(@Valid @RequestBody RoleDTO dto, @PathVariable ("id") Integer id) throws Exception {
         Role updatedRole = service.update(convertToEntity(dto), id);
         return new ResponseEntity<>(convertToDTO(updatedRole), HttpStatus.OK);
     }

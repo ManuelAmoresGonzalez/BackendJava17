@@ -3,6 +3,7 @@ package com.manuelamores.controller;
 import com.manuelamores.dto.ProviderDTO;
 import com.manuelamores.model.Provider;
 import com.manuelamores.service.IProviderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,13 +38,13 @@ public class ProviderController {
     }
 
     @PostMapping
-    public ResponseEntity<ProviderDTO> create(@RequestBody ProviderDTO dto) throws Exception {
+    public ResponseEntity<ProviderDTO> create(@Valid  @RequestBody ProviderDTO dto) throws Exception {
         Provider createdProvider = service.save(convertToEntity(dto));
         return new ResponseEntity<>(convertToDTO(createdProvider), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ProviderDTO> update(@RequestBody ProviderDTO dto, @PathVariable ("id") Integer id) throws Exception {
+    public ResponseEntity<ProviderDTO> update(@Valid @RequestBody ProviderDTO dto, @PathVariable ("id") Integer id) throws Exception {
         Provider updatedProvider = service.update(convertToEntity(dto), id);
         return new ResponseEntity<>(convertToDTO(updatedProvider), HttpStatus.OK);
     }

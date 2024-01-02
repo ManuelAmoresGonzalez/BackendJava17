@@ -3,6 +3,7 @@ package com.manuelamores.controller;
 import com.manuelamores.dto.UserDTO;
 import com.manuelamores.model.User;
 import com.manuelamores.service.IUserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,13 +38,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> create(@RequestBody UserDTO dto) throws Exception {
+    public ResponseEntity<UserDTO> create(@Valid  @RequestBody UserDTO dto) throws Exception {
         User createdUser = service.save(convertToEntity(dto));
         return new ResponseEntity<>(convertToDTO(createdUser), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<UserDTO> update(@RequestBody UserDTO dto, @PathVariable ("id") Integer id) throws Exception {
+    public ResponseEntity<UserDTO> update(@Valid @RequestBody UserDTO dto, @PathVariable ("id") Integer id) throws Exception {
         User updatedUser = service.update(convertToEntity(dto), id);
         return new ResponseEntity<>(convertToDTO(updatedUser), HttpStatus.OK);
     }
@@ -57,7 +58,6 @@ public class UserController {
     private UserDTO convertToDTO(User user) {
         return mapper.map(user, UserDTO.class);
     }
-
 
     private User convertToEntity(UserDTO dto) {
         return mapper.map(dto, User.class);

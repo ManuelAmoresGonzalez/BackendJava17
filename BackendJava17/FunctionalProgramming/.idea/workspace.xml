@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1f4caafd-51a8-4c2c-a85d-29bc0adf0928" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Records/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Records/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/ProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/CategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/CategoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/ClientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/ClientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/ProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/ProviderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/ProviderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/RoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/exceptions/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/exceptions/GlobalErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/SaleDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/SaleDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/repo/ICategoryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/repo/ICategoryRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/ICRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/ICRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/ICategorySevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/ICategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/impl/CRUDImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/impl/CRUDImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/java/com/manuelamores/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../projectspringboot/manuel-sales/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2Zdchje9C1c9vTQ29vOPpOJxA3m" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Develop",
+    "last_opened_file_path": "/Users/manuel.amores/Desktop/BackendJava17/BackendJava17/FunctionalProgramming",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1f4caafd-51a8-4c2c-a85d-29bc0adf0928" name="Changes" comment="" />
+      <created>1702755518105</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702755518105</updated>
+      <workItem from="1702755519102" duration="708000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
